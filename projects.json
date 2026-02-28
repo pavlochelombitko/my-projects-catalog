@@ -30,4 +30,15 @@
       "Econ"
     ]
   }
+  {
+    "id": "1772313367150",
+    "title": "Simple quiz",
+    "description": "This small quiz is made to tast all powers of web page to google sheets. So all answers automaticaly fly to my database. This looks a lot better that simple Google Forms.",
+    "image": "https://lh3.googleusercontent.com/sitesv/APaQ0SQGlg5NGr6-1dJmMU2Bb70foZ61u6M7baN0jGR4ADZqZNdnlNDTb8rRQ9vbwOoyPkr1lK6IX-MjARwIjF0VTgNZvVgdZ3iL-c7L0EEZmoiO4Ua8OjLnmCw8gGrYRstVTI_-PaQtFqkpJz4CrbI-4TLdBfK2AIOjpHX25LeBL9klYuhJuYG4I-FDVJkmehCMhIYM88S_H4rn8xE3t2hqNguumeRfTRG28LL8=w1280",
+    "link": "https://pavlochelombitko.github.io/simplequiz/",
+    "tags": [
+      "Study",
+      "Econ"
+    ]
+  }
 ]
