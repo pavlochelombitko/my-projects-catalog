@@ -4,7 +4,7 @@ A minimal, dark-themed portfolio site for showcasing projects. Built for GitHub 
 
 ## Quick Setup
 
-1. Create a new GitHub repo (e.g. `pavlochelombitko.github.io` or `portfolio`)
+1. Create a new GitHub repo (e.g. `name.github.io` or `portfolio`)
 2. Upload all 4 files: `index.html`, `admin.html`, `projects.json`, `README.md`
 3. Go to **Settings → Pages → Source** and select `main` branch
 4. Your site is live!
