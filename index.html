@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)file:///C:/Users/matio/Desktop/files/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pavyel_ — Projects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link href="./index_files/css2" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-card: #12121a;
+            --bg-card-hover: #1a1a26;
+            --border: #1e1e2e;
+            --border-hover: #2d2d44;
+            --text-primary: #e8e8f0;
+            --text-secondary: #8888a0;
+            --text-muted: #55556a;
+            --accent: #00e5bf;
+            --accent-dim: #00e5bf22;
+            --tag-bg: #1a1a2a;
+            --tag-text: #7878a0;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .ambient {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.07;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .ambient--1 { top: -200px; left: -100px; background: var(--accent); }
+        .ambient--2 { bottom: -300px; right: -200px; background: #6366f1; }
+
+        header {
+            position: relative;
+            z-index: 1;
+            padding: 3rem 2rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        .logo span { color: var(--accent); }
+
+        .nav-links { display: flex; align-items: center; gap: 0.75rem; }
+
+        .nav-link {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .nav-link:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            background: var(--accent-dim);
+        }
+        .nav-link svg { width: 16px; height: 16px; }
+
+        .hero {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem 5rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 520px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .line-accent {
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 4px;
+            margin-bottom: 2rem;
+            animation: lineGrow 0.8s ease-out;
+        }
+        @keyframes lineGrow {
+            from { width: 0; opacity: 0; }
+            to { width: 60px; opacity: 1; }
+        }
+
+        .projects-section {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 6rem;
+        }
+
+        .section-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+        .project-count { color: var(--accent); font-weight: 700; }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .project-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .project-card:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px -20px rgba(0, 229, 191, 0.08);
+        }
+
+        .card-image-wrapper {
+            overflow: hidden;
+            position: relative;
+        }
+        .card-image-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 60px;
+            background: linear-gradient(transparent, var(--bg-card));
+            pointer-events: none;
+        }
+
+        .card-image {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            display: block;
+            border-bottom: 1px solid var(--border);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            background: var(--bg-card-hover);
+        }
+        .project-card:hover .card-image { transform: scale(1.03); }
+
+        .card-placeholder {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #12121a 0%, #1a1a2a 100%);
+            border-bottom: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 2.5rem;
+            opacity: 0.3;
+        }
+
+        .card-body { padding: 1.5rem; }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            letter-spacing: -0.3px;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            margin-bottom: 1.25rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+
+        .tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            padding: 0.3rem 0.65rem;
+            background: var(--tag-bg);
+            color: var(--tag-text);
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .card-link {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-decoration: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+        .card-link:hover { background: var(--accent-dim); }
+        .card-link svg { width: 14px; height: 14px; transition: transform 0.3s ease; }
+        .card-link:hover svg { transform: translate(2px, -2px); }
+
+        .empty-state {
+            text-align: center;
+            padding: 5rem 2rem;
+            color: var(--text-muted);
+            grid-column: 1 / -1;
+        }
+        .empty-state svg { margin-bottom: 1.5rem; opacity: 0.3; }
+        .empty-state a { color: var(--accent); }
+
+        footer {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        footer a { color: var(--text-secondary); text-decoration: none; transition: color 0.3s; }
+        footer a:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            header { padding: 2rem 1.25rem 1rem; }
+            .hero { padding: 2.5rem 1.25rem 3rem; }
+            .projects-section { padding: 0 1.25rem 4rem; }
+            .projects-grid { grid-template-columns: 1fr; }
+            footer { padding: 1.5rem 1.25rem; flex-direction: column; gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="ambient ambient--1"></div>
+    <div class="ambient ambient--2"></div>
+
+    <header>
+        <a href="file:///C:/Users/matio/Desktop/files/index.html" class="logo">pavyel_<span>.</span></a>
+        <div class="nav-links">
+            <a href="https://github.com/pavlochelombitko" class="nav-link" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path></svg>
+                GitHub
+            </a>
+            
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="line-accent"></div>
+        <h1>Projects &amp;<br>Experiments</h1>
+        <p>A collection of things I've built — from AI-powered platforms to creative experiments and everything in between.</p>
+    </section>
+
+    <section class="projects-section">
+        <div class="section-label">
+            All Projects <span class="project-count" id="projectCount">03</span>
+            <span></span>
+        </div>
+        <div id="projectsGrid" class="projects-grid"><article class="project-card visible"><div class="card-image-wrapper"><img class="card-image" src="./index_files/unnamed.png" alt="Pomodoro timer" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=card-placeholder&gt;◆&lt;/div&gt;&#39;"></div><div class="card-body"><h3 class="card-title">Pomodoro timer</h3><p class="card-desc">So I`ve created an open source pomodoro timer with no ads for everyone forever.</p><div class="card-footer"><div class="card-tags"><span class="tag">Pomodoro</span></div><a class="card-link" href="https://pavlochelombitko.github.io/focus.flow.github.io/" target="_blank" rel="noopener">View <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></div></div></article><article class="project-card visible"><div class="card-image-wrapper"><img class="card-image" src="./index_files/unnamed(1).png" alt="FinVault" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=card-placeholder&gt;◆&lt;/div&gt;&#39;"></div><div class="card-body"><h3 class="card-title">FinVault</h3><p class="card-desc">Compound interest modeling, inflation analysis, goal planning</p><div class="card-footer"><div class="card-tags"><span class="tag">Investing</span></div><a class="card-link" href="https://pavlochelombitko.github.io/finvault.github.io/" target="_blank" rel="noopener">View <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></div></div></article><article class="project-card visible"><div class="card-image-wrapper"><img class="card-image" src="./index_files/unnamed(2).png" alt="EconStudy" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=card-placeholder&gt;◆&lt;/div&gt;&#39;"></div><div class="card-body"><h3 class="card-title">EconStudy</h3><p class="card-desc">Free, ad-free static website that teaches core economics through 22+ hand-crafted SVG graphs and plain-language explanations.</p><div class="card-footer"><div class="card-tags"><span class="tag">Study</span><span class="tag">Econ</span></div><a class="card-link" href="https://pavlochelombitko.github.io/EconStudy/index.html" target="_blank" rel="noopener">View <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></div></div></article></div>
+    </section>
+
+    <footer>
+        <span>© 2025 pavyel_</span>
+        <a href="https://github.com/pavlochelombitko" target="_blank" rel="noopener">GitHub ↗</a>
+    </footer>
+
+    <script>
+        (function() {
+            var ARROW = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>';
+
+            function esc(str) {
+                if (!str) return '';
+                var d = document.createElement('div');
+                d.textContent = str;
+                return d.innerHTML;
+            }
+
+            function makeCard(p) {
+                var img = p.image
+                    ? '<div class="card-image-wrapper"><img class="card-image" src="' + esc(p.image) + '" alt="' + esc(p.title) + '" loading="lazy" onerror="this.parentElement.innerHTML=\'<div class=card-placeholder>&#9670;</div>\'"></div>'
+                    : '<div class="card-image-wrapper"><div class="card-placeholder">&#9670;</div></div>';
+
+                var tags = (p.tags || []).map(function(t) {
+                    return '<span class="tag">' + esc(t) + '</span>';
+                }).join('');
+
+                var link = p.link
+                    ? '<a class="card-link" href="' + esc(p.link) + '" target="_blank" rel="noopener">View ' + ARROW + '</a>'
+                    : '';
+
+                return '<article class="project-card">' + img +
+                    '<div class="card-body">' +
+                        '<h3 class="card-title">' + esc(p.title) + '</h3>' +
+                        '<p class="card-desc">' + esc(p.description) + '</p>' +
+                        '<div class="card-footer">' +
+                            '<div class="card-tags">' + tags + '</div>' +
+                            link +
+                        '</div>' +
+                    '</div></article>';
+            }
+
+            function showEmpty() {
+                return '<div class="empty-state">' +
+                    '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>' +
+                    '<p>No projects yet. Add some via the <a href="admin.html">admin panel</a>.</p></div>';
+            }
+
+            function animate() {
+                var cards = document.querySelectorAll('.project-card');
+                for (var i = 0; i < cards.length; i++) {
+                    (function(card, delay) {
+                        setTimeout(function() { card.classList.add('visible'); }, delay);
+                    })(cards[i], 100 + i * 100);
+                }
+            }
+
+            function render(projects) {
+                var grid = document.getElementById('projectsGrid');
+                var count = document.getElementById('projectCount');
+
+                if (!projects || !projects.length) {
+                    grid.innerHTML = showEmpty();
+                    count.textContent = '0';
+                    return;
+                }
+
+                count.textContent = projects.length < 10 ? '0' + projects.length : '' + projects.length;
+                grid.innerHTML = projects.map(makeCard).join('');
+                animate();
+            }
+
+            // Load: localStorage first (admin syncs here), then projects.json
+            var stored = null;
+            try {
+                var raw = localStorage.getItem('portfolio_projects');
+                if (raw) stored = JSON.parse(raw);
+            } catch(e) {}
+
+            if (stored && Array.isArray(stored) && stored.length > 0) {
+                render(stored);
+            } else {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'projects.json?' + Date.now(), true);
+                xhr.onload = function() {
+                    try {
+                        var data = JSON.parse(xhr.responseText);
+                        render(data);
+                    } catch(e) {
+                        render([]);
+                    }
+                };
+                xhr.onerror = function() { render([]); };
+                xhr.send();
+            }
+        })();
+    </script>
+
+
+</body></html>

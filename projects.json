@@ -1,0 +1,33 @@
+[
+  {
+    "id": "1772313292130",
+    "title": "Pomodoro timer",
+    "description": "So I`ve created an open source pomodoro timer with no ads for everyone forever.",
+    "image": "https://lh3.googleusercontent.com/sitesv/APaQ0STGoP1UPXOf0TVwv3pWB68MGw-fLO81uvRFEAiKL2NYg8BNQQEKpiZ7_Eqcy988ffw4NuVyCtw0pGuB-Pg3mIEAyvLw0dbUCKM5rn2Om2AJ58MT9XNwhM4MWwWJXHQnhVPh5xvxJhTR8TYpIjKDw1-p-TJq5TYclBc9GBraEWeWyoe4mP6HbjfrhKlmAZmqMCCbpnIe2xmBTapgntrsN9AmmJYAPzli4cODYxE=w1280",
+    "link": "https://pavlochelombitko.github.io/focus.flow.github.io/",
+    "tags": [
+      "Pomodoro"
+    ]
+  },
+  {
+    "id": "1772313335577",
+    "title": "FinVault",
+    "description": "Compound interest modeling, inflation analysis, goal planning",
+    "image": "https://lh3.googleusercontent.com/sitesv/APaQ0SRx7qdi0-aMAI9SeDCOyln95tcS1x79sVgV9aErALPNKU4YiLnpGLlQ4HM6PlkX9jXSjoT6ieVxEI0NJKHCSuB1kgTiwauJD2QuwYaGWSKgihLkjALdxM1SkFFuF1ObQb3BcHCtE3R5iTZLSWVyserqPgMCc2Qpa6id8lrx_ZsyngjUDATSoD2c14sMLjlUMqA59uPIWtNxUoYecAdmFeUEJHb1rPFEbKLyciI=w1280",
+    "link": "https://pavlochelombitko.github.io/finvault.github.io/",
+    "tags": [
+      "Investing"
+    ]
+  },
+  {
+    "id": "1772313367148",
+    "title": "EconStudy",
+    "description": "Free, ad-free static website that teaches core economics through 22+ hand-crafted SVG graphs and plain-language explanations.",
+    "image": "https://lh3.googleusercontent.com/sitesv/APaQ0ST2FICpizfH3JHViDpIGVHn5Dciyg5ga9MJ6I8AyVJWT0K8D6aXH3nuV0VawWGoGEt7iDploTlXnsGRqi2-sNkh3gYaqiU3rqTwOkoLXyoxci3sUn1CnNf5sBKvr1UmqiE1U1IRWLh1n8SQ4yCB-CEvHgua979_Ll2SWsvA3xBQgEH-EhYVAn6FkXM0v-xfaN3BEUy6FZILEHMU23uKHdh9oEoHN68kHWE4qds=w1280",
+    "link": "https://pavlochelombitko.github.io/EconStudy/index.html",
+    "tags": [
+      "Study",
+      "Econ"
+    ]
+  }
+]

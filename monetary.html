@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monetary &amp; Fiscal Policy — EconStudy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Econ<span>Study</span></a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="micro.html">Microeconomics</a>
+      <a href="macro.html">Macroeconomics</a>
+      <a href="monetary.html" class="active">Monetary &amp; Fiscal</a>
+      <a href="trade.html">International Trade</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header fade-in">
+  <div class="breadcrumb"><a href="index.html">Home</a> / Monetary &amp; Fiscal Policy</div>
+  <h1>Monetary &amp; Fiscal Policy</h1>
+  <p>How central banks and governments use their tools to stabilize the economy, manage inflation, and promote employment.</p>
+</header>
+
+<main class="content">
+
+  <div class="toc fade-in">
+    <div class="toc-title">On this page</div>
+    <a href="#monetary">1. Monetary Policy</a>
+    <a href="#money-market">2. The Money Market</a>
+    <a href="#transmission">3. Transmission Mechanism</a>
+    <a href="#fiscal">4. Fiscal Policy</a>
+    <a href="#multiplier">5. The Multiplier Effect</a>
+    <a href="#comparison">6. Monetary vs. Fiscal — Comparison</a>
+  </div>
+
+  <!-- ===== 1. MONETARY POLICY ===== -->
+  <h2 id="monetary">1. Monetary Policy</h2>
+
+  <p><strong>Monetary policy</strong> refers to actions taken by a central bank (such as the Federal Reserve, European Central Bank, or Bank of England) to influence the money supply and interest rates. The primary goals are price stability (controlling inflation), full employment, and sustainable economic growth.</p>
+
+  <h3>Key Tools</h3>
+
+  <p><strong>Interest rate setting:</strong> The central bank sets a benchmark interest rate (e.g., the federal funds rate in the US). Lowering rates makes borrowing cheaper, encouraging spending and investment. Raising rates does the opposite, cooling the economy.</p>
+
+  <p><strong>Open market operations (OMO):</strong> The central bank buys or sells government bonds. Buying bonds injects money into the banking system (expansionary). Selling bonds withdraws money (contractionary).</p>
+
+  <p><strong>Reserve requirements:</strong> The central bank can change the fraction of deposits that commercial banks must hold in reserve. Lower requirements free up more money for lending.</p>
+
+  <p><strong>Quantitative easing (QE):</strong> When interest rates hit zero (the "zero lower bound"), central banks can purchase longer-term assets to push down long-term rates and stimulate the economy — an unconventional tool used extensively after the 2008 financial crisis and during COVID-19.</p>
+
+  <div class="concept-box">
+    <div class="label">Expansionary vs. Contractionary</div>
+    <p><strong>Expansionary</strong> monetary policy (lower rates, buy bonds) stimulates the economy when it's in recession. <strong>Contractionary</strong> policy (higher rates, sell bonds) cools an overheating economy to control inflation. Central banks must balance these goals carefully — acting too aggressively in either direction creates problems.</p>
+  </div>
+
+
+  <!-- ===== 2. MONEY MARKET ===== -->
+  <h2 id="money-market">2. The Money Market</h2>
+
+  <p>The <strong>money market model</strong> shows how the interest rate is determined by the interaction between money supply and money demand.</p>
+
+  <p><strong>Money demand</strong> slopes downward — at lower interest rates, the opportunity cost of holding money is lower, so people hold more. <strong>Money supply</strong> is set by the central bank and shown as a vertical line (it doesn't depend on the interest rate).</p>
+
+  <div class="figure fade-in">
+    <svg viewBox="0 0 500 360" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="gridm1" width="50" height="50" patternUnits="userSpaceOnUse">
+          <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#E8E6E1" stroke-width="0.8"/>
+        </pattern>
+      </defs>
+      <rect x="60" y="20" width="400" height="280" fill="url(#gridm1)"/>
+      <line x1="60" y1="300" x2="460" y2="300" stroke="#2C2C2C" stroke-width="2"/>
+      <line x1="60" y1="20" x2="60" y2="300" stroke="#2C2C2C" stroke-width="2"/>
+      <text x="260" y="340" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="14" fill="#6B6B6B">Quantity of Money</text>
+      <text x="20" y="160" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="14" fill="#6B6B6B" transform="rotate(-90, 20, 160)">Nominal Interest Rate (i)</text>
+      <!-- Money supply (vertical) MS1 -->
+      <line x1="240" y1="40" x2="240" y2="280" stroke="#1A8A7D" stroke-width="2.5" opacity="0.4"/>
+      <text x="240" y="35" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="12" fill="#1A8A7D" opacity="0.5">MS₁</text>
+      <!-- Money supply shifted right MS2 -->
+      <line x1="310" y1="40" x2="310" y2="280" stroke="#1A8A7D" stroke-width="3"/>
+      <text x="310" y="35" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="13" fill="#1A8A7D" font-weight="600">MS₂</text>
+      <!-- Shift arrow -->
+      <defs><marker id="ahm" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#1A8A7D"/></marker></defs>
+      <line x1="255" y1="60" x2="295" y2="60" stroke="#1A8A7D" stroke-width="2" marker-end="url(#ahm)"/>
+      <!-- Money demand -->
+      <path d="M110,60 Q200,120 300,190 Q380,240 440,265" stroke="#E74C3C" stroke-width="2.5" fill="none"/>
+      <text x="445" y="272" font-family="Source Sans 3, sans-serif" font-size="13" fill="#E74C3C" font-weight="600">MD</text>
+      <!-- Original equilibrium -->
+      <circle cx="240" cy="155" r="4" fill="#6B6B6B"/>
+      <line x1="60" y1="155" x2="240" y2="155" stroke="#6B6B6B" stroke-width="1" stroke-dasharray="5,4"/>
+      <text x="46" y="160" text-anchor="end" font-family="Source Sans 3, sans-serif" font-size="11" fill="#6B6B6B">i₁</text>
+      <!-- New equilibrium (lower rate) -->
+      <circle cx="310" cy="192" r="5" fill="#2C2C2C"/>
+      <line x1="60" y1="192" x2="310" y2="192" stroke="#2C2C2C" stroke-width="1.2" stroke-dasharray="5,4"/>
+      <text x="46" y="197" text-anchor="end" font-family="Source Sans 3, sans-serif" font-size="12" fill="#2C2C2C" font-weight="600">i₂</text>
+      <text x="330" y="185" font-family="Source Sans 3, sans-serif" font-size="11" fill="#6B6B6B">New equilibrium</text>
+    </svg>
+    <div class="figure-caption"><strong>Figure 2.1:</strong> An expansionary monetary policy shifts the money supply from MS₁ to MS₂. The equilibrium interest rate falls from i₁ to i₂. Lower interest rates stimulate borrowing, investment, and economic activity.</div>
+  </div>
+
+
+  <!-- ===== 3. TRANSMISSION ===== -->
+  <h2 id="transmission">3. Transmission Mechanism</h2>
+
+  <p>The <strong>monetary transmission mechanism</strong> describes how a change in monetary policy flows through the economy to affect output and prices. Here's the chain:</p>
+
+  <div class="figure fade-in">
+    <svg viewBox="0 0 500 180" xmlns="http://www.w3.org/2000/svg">
+      <defs><marker id="aht" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#1A8A7D"/></marker></defs>
+      <!-- Step boxes -->
+      <rect x="10" y="30" width="90" height="70" rx="8" fill="#E8F5F3" stroke="#1A8A7D" stroke-width="1.5"/>
+      <text x="55" y="55" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="11" fill="#14706A" font-weight="600">Central Bank</text>
+      <text x="55" y="72" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10" fill="#14706A">↑ Money Supply</text>
+
+      <line x1="105" y1="65" x2="130" y2="65" stroke="#1A8A7D" stroke-width="2" marker-end="url(#aht)"/>
+
+      <rect x="135" y="30" width="80" height="70" rx="8" fill="#E8F5F3" stroke="#1A8A7D" stroke-width="1.5"/>
+      <text x="175" y="55" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="11" fill="#14706A" font-weight="600">Interest</text>
+      <text x="175" y="72" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10" fill="#14706A">Rates ↓</text>
+
+      <line x1="220" y1="65" x2="245" y2="65" stroke="#1A8A7D" stroke-width="2" marker-end="url(#aht)"/>
+
+      <rect x="250" y="30" width="80" height="70" rx="8" fill="#E8F5F3" stroke="#1A8A7D" stroke-width="1.5"/>
+      <text x="290" y="52" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="11" fill="#14706A" font-weight="600">Investment</text>
+      <text x="290" y="68" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="11" fill="#14706A" font-weight="600">&amp; Spending</text>
+      <text x="290" y="85" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10" fill="#14706A">↑</text>
+
+      <line x1="335" y1="65" x2="360" y2="65" stroke="#1A8A7D" stroke-width="2" marker-end="url(#aht)"/>
+
+      <rect x="365" y="30" width="120" height="70" rx="8" fill="#1A8A7D" stroke="none"/>
+      <text x="425" y="55" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="11" fill="white" font-weight="600">AD shifts right →</text>
+      <text x="425" y="72" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">↑ Output &amp; ↑ Prices</text>
+
+      <!-- Caption row -->
+      <text x="250" y="140" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="12" fill="#6B6B6B">Expansionary monetary policy: ↑MS → ↓i → ↑I → ↑AD → ↑Y &amp; ↑PL</text>
+      <text x="250" y="160" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="11" fill="#9A9A9A">(Contractionary works in reverse)</text>
+    </svg>
+    <div class="figure-caption"><strong>Figure 3.1:</strong> The monetary transmission mechanism. An increase in money supply lowers interest rates, which boosts investment and consumption, shifting aggregate demand right and increasing output and the price level.</div>
+  </div>
+
+
+  <!-- ===== 4. FISCAL POLICY ===== -->
+  <h2 id="fiscal">4. Fiscal Policy</h2>
+
+  <p><strong>Fiscal policy</strong> involves government decisions about spending and taxation to influence the economy. Unlike monetary policy (controlled by the central bank), fiscal policy is determined by elected officials — parliaments and presidents.</p>
+
+  <h3>Expansionary Fiscal Policy</h3>
+  <p>During a recession, the government can increase spending (on infrastructure, transfers, public services) or cut taxes to boost aggregate demand. The logic: more money in consumers' pockets → more spending → higher output → lower unemployment.</p>
+
+  <h3>Contractionary Fiscal Policy</h3>
+  <p>When the economy overheats, the government can reduce spending or raise taxes to cool demand and reduce inflationary pressure. This is politically harder to do, since cutting spending and raising taxes are unpopular.</p>
+
+  <div class="figure fade-in">
+    <svg viewBox="0 0 500 360" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="gridf1" width="50" height="50" patternUnits="userSpaceOnUse">
+          <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#E8E6E1" stroke-width="0.8"/>
+        </pattern>
+      </defs>
+      <rect x="60" y="20" width="400" height="280" fill="url(#gridf1)"/>
+      <line x1="60" y1="300" x2="460" y2="300" stroke="#2C2C2C" stroke-width="2"/>
+      <line x1="60" y1="20" x2="60" y2="300" stroke="#2C2C2C" stroke-width="2"/>
+      <text x="260" y="340" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="14" fill="#6B6B6B">Real GDP</text>
+      <text x="20" y="160" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="14" fill="#6B6B6B" transform="rotate(-90, 20, 160)">Price Level</text>
+      <!-- LRAS -->
+      <line x1="320" y1="40" x2="320" y2="280" stroke="#8E44AD" stroke-width="2"/>
+      <text x="320" y="35" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="12" fill="#8E44AD" font-weight="600">LRAS</text>
+      <!-- SRAS -->
+      <path d="M100,260 Q220,200 320,140 Q400,90 440,50" stroke="#1A8A7D" stroke-width="2.5" fill="none"/>
+      <text x="445" y="48" font-family="Source Sans 3, sans-serif" font-size="12" fill="#1A8A7D" font-weight="600">SRAS</text>
+      <!-- AD1 (recessionary — too far left) -->
+      <path d="M90,60 Q160,110 240,170 Q320,230 400,270" stroke="#E74C3C" stroke-width="2" fill="none" opacity="0.4"/>
+      <text x="405" y="278" font-family="Source Sans 3, sans-serif" font-size="12" fill="#E74C3C" opacity="0.5">AD₁</text>
+      <!-- AD2 (shifted right by fiscal policy) -->
+      <path d="M140,50 Q220,100 310,160 Q380,210 440,250" stroke="#E74C3C" stroke-width="2.5" fill="none"/>
+      <text x="445" y="256" font-family="Source Sans 3, sans-serif" font-size="12" fill="#E74C3C" font-weight="600">AD₂</text>
+      <!-- Shift arrow -->
+      <defs><marker id="ahf" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#E74C3C"/></marker></defs>
+      <line x1="240" y1="200" x2="290" y2="200" stroke="#E74C3C" stroke-width="2" marker-end="url(#ahf)"/>
+      <text x="265" y="220" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10" fill="#E74C3C" font-weight="600">↑G or ↓T</text>
+      <!-- Equilibrium points -->
+      <circle cx="240" cy="180" r="4" fill="#6B6B6B"/>
+      <circle cx="315" cy="142" r="5" fill="#2C2C2C"/>
+      <text x="330" y="136" font-family="Source Sans 3, sans-serif" font-size="11" fill="#6B6B6B">New equilibrium</text>
+    </svg>
+    <div class="figure-caption"><strong>Figure 4.1:</strong> Expansionary fiscal policy (increased government spending or tax cuts) shifts AD from AD₁ to AD₂. This closes the recessionary gap, moving the economy toward potential output (LRAS). The price level also rises somewhat.</div>
+  </div>
+
+  <div class="concept-box">
+    <div class="label">Crowding Out</div>
+    <p>A key criticism of fiscal expansion: government borrowing to fund increased spending can raise interest rates, which discourages (or "crowds out") private investment. The net stimulus may therefore be smaller than intended. This effect is stronger when the economy is near full capacity.</p>
+  </div>
+
+
+  <!-- ===== 5. MULTIPLIER ===== -->
+  <h2 id="multiplier">5. The Multiplier Effect</h2>
+
+  <p>When the government spends an extra dollar, the total impact on GDP is greater than one dollar because of the <strong>multiplier effect</strong>. The recipient of government spending re-spends part of that money, and those recipients spend part of theirs, and so on — creating a chain of spending.</p>
+
+  <div class="formula">
+    Spending Multiplier = 1 / (1 − MPC)
+  </div>
+
+  <p>Where <strong>MPC</strong> (Marginal Propensity to Consume) is the fraction of additional income that households spend. If MPC = 0.8, the multiplier is 1/(1−0.8) = 5. This means every $1 of government spending increases GDP by $5.</p>
+
+  <div class="figure fade-in">
+    <svg viewBox="0 0 500 260" xmlns="http://www.w3.org/2000/svg">
+      <!-- Visual rounds of spending -->
+      <text x="250" y="22" text-anchor="middle" font-family="Playfair Display, serif" font-size="14" fill="#2C2C2C" font-weight="600">Multiplier Effect: $100 Initial Spending, MPC = 0.8</text>
+      <!-- Bars decreasing -->
+      <rect x="60" y="50" width="200" height="30" rx="4" fill="#1A8A7D"/>
+      <text x="165" y="70" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="12" fill="white" font-weight="600">Round 1: $100.00</text>
+
+      <rect x="60" y="90" width="160" height="30" rx="4" fill="#1A8A7D" opacity="0.85"/>
+      <text x="145" y="110" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="12" fill="white" font-weight="600">Round 2: $80.00</text>
+
+      <rect x="60" y="130" width="128" height="30" rx="4" fill="#1A8A7D" opacity="0.7"/>
+      <text x="128" y="150" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="12" fill="white" font-weight="600">Round 3: $64.00</text>
+
+      <rect x="60" y="170" width="102" height="30" rx="4" fill="#1A8A7D" opacity="0.55"/>
+      <text x="115" y="190" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="12" fill="white" font-weight="600">Round 4: $51.20</text>
+
+      <rect x="60" y="210" width="82" height="30" rx="4" fill="#1A8A7D" opacity="0.4"/>
+      <text x="105" y="230" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="12" fill="white" font-weight="500">Round 5: $40.96</text>
+
+      <!-- Total -->
+      <text x="340" y="80" font-family="Source Sans 3, sans-serif" font-size="12" fill="#6B6B6B">Each round, 80% is</text>
+      <text x="340" y="96" font-family="Source Sans 3, sans-serif" font-size="12" fill="#6B6B6B">re-spent (MPC = 0.8)</text>
+      <text x="340" y="145" font-family="Playfair Display, serif" font-size="20" fill="#1A8A7D" font-weight="700">Total: $500</text>
+      <text x="340" y="168" font-family="Source Sans 3, sans-serif" font-size="12" fill="#6B6B6B">Multiplier = 5×</text>
+      <text x="340" y="200" font-family="Source Sans 3, sans-serif" font-size="11" fill="#9A9A9A">$100 × 5 = $500 total</text>
+      <text x="340" y="216" font-family="Source Sans 3, sans-serif" font-size="11" fill="#9A9A9A">impact on GDP</text>
+    </svg>
+    <div class="figure-caption"><strong>Figure 5.1:</strong> With MPC = 0.8, an initial $100 of government spending generates $500 of total economic activity. Each round re-spends 80% of the previous round, with the series converging to 1/(1−0.8) × $100 = $500.</div>
+  </div>
+
+  <p>The <strong>tax multiplier</strong> is slightly smaller than the spending multiplier because when taxes are cut, households save part of the extra income rather than spending all of it. Tax multiplier = −MPC / (1 − MPC).</p>
+
+
+  <!-- ===== 6. COMPARISON ===== -->
+  <h2 id="comparison">6. Monetary vs. Fiscal — Comparison</h2>
+
+  <table class="comp-table">
+    <thead>
+      <tr><th>Feature</th><th>Monetary Policy</th><th>Fiscal Policy</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Controlled by</strong></td><td>Central bank (independent)</td><td>Government (elected officials)</td></tr>
+      <tr><td><strong>Main tools</strong></td><td>Interest rates, OMO, QE</td><td>Government spending, taxation</td></tr>
+      <tr><td><strong>Speed of implementation</strong></td><td>Fast (weeks)</td><td>Slow (legislative process)</td></tr>
+      <tr><td><strong>Time lag to effect</strong></td><td>6–18 months</td><td>Shorter once enacted</td></tr>
+      <tr><td><strong>Precision</strong></td><td>Blunt (economy-wide)</td><td>Can target specific sectors</td></tr>
+      <tr><td><strong>Side effects</strong></td><td>Asset bubbles, bank profits</td><td>Crowding out, budget deficits</td></tr>
+      <tr><td><strong>Political independence</strong></td><td>High (shielded from politics)</td><td>Low (politically driven)</td></tr>
+      <tr><td><strong>Limitation</strong></td><td>Zero lower bound, liquidity trap</td><td>Debt sustainability</td></tr>
+    </tbody>
+  </table>
+
+  <div class="concept-box">
+    <div class="label">Policy Mix</div>
+    <p>In practice, monetary and fiscal policy work best together. During the 2008 crisis and COVID-19 pandemic, both central banks (QE, near-zero rates) and governments (stimulus checks, infrastructure spending) acted simultaneously to prevent deeper recessions. Coordination matters.</p>
+  </div>
+
+
+  <div class="topic-nav">
+    <a href="macro.html">
+      <span class="dir">← Previous</span>
+      <span class="title">Macroeconomics</span>
+    </a>
+    <a href="trade.html" class="next">
+      <span class="dir">Next →</span>
+      <span class="title">International Trade</span>
+    </a>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <p>EconStudy — Free &amp; open-source. No ads, ever.</p>
+</footer>
+
+</body>
+</html>

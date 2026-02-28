@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>International Trade — EconStudy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Econ<span>Study</span></a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="micro.html">Microeconomics</a>
+      <a href="macro.html">Macroeconomics</a>
+      <a href="monetary.html">Monetary &amp; Fiscal</a>
+      <a href="trade.html" class="active">International Trade</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header fade-in">
+  <div class="breadcrumb"><a href="index.html">Home</a> / International Trade</div>
+  <h1>International Trade</h1>
+  <p>How and why countries trade, the gains from specialization, trade barriers, and the foreign exchange market.</p>
+</header>
+
+<main class="content">
+
+  <div class="toc fade-in">
+    <div class="toc-title">On this page</div>
+    <a href="#why-trade">1. Why Countries Trade</a>
+    <a href="#comparative">2. Comparative Advantage</a>
+    <a href="#barriers">3. Trade Barriers</a>
+    <a href="#tariff-graph">4. Effects of a Tariff</a>
+    <a href="#exchange">5. Exchange Rates</a>
+    <a href="#bop">6. Balance of Payments</a>
+  </div>
+
+  <!-- ===== 1. WHY TRADE ===== -->
+  <h2 id="why-trade">1. Why Countries Trade</h2>
+
+  <p>International trade allows countries to consume beyond their own production possibilities. By specializing in what they produce most efficiently and trading for the rest, all countries can be better off. The key reasons countries trade include differences in resource endowments, technology, climate, and labor skills.</p>
+
+  <p><strong>Absolute advantage</strong> means a country can produce a good using fewer resources than another country. But even without absolute advantage, trade is still beneficial — this is the insight behind <strong>comparative advantage</strong>.</p>
+
+  <div class="concept-box">
+    <div class="label">Key Insight</div>
+    <p>Trade is not a zero-sum game. When countries specialize according to their comparative advantage, total world output increases. Both trading partners can consume more than they could in isolation — trade creates winners on both sides.</p>
+  </div>
+
+
+  <!-- ===== 2. COMPARATIVE ADVANTAGE ===== -->
+  <h2 id="comparative">2. Comparative Advantage</h2>
+
+  <p><strong>Comparative advantage</strong> is the ability to produce a good at a lower opportunity cost than another country. Even if one country is better at producing everything (absolute advantage in all goods), both countries still gain from trade if they specialize in the good where their opportunity cost is lowest.</p>
+
+  <h3>Example: Two Countries, Two Goods</h3>
+
+  <table class="comp-table">
+    <thead><tr><th>Country</th><th>Wheat (tons/year)</th><th>Cloth (units/year)</th><th>Opportunity Cost of 1 Wheat</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Country A</strong></td><td>100</td><td>50</td><td>0.5 Cloth</td></tr>
+      <tr><td><strong>Country B</strong></td><td>40</td><td>40</td><td>1.0 Cloth</td></tr>
+    </tbody>
+  </table>
+
+  <p>Country A has an absolute advantage in both goods (produces more of each). But Country A has a <strong>comparative advantage in wheat</strong> (gives up only 0.5 cloth per wheat, vs. 1.0 for Country B). Country B has a <strong>comparative advantage in cloth</strong> (gives up only 1 wheat per cloth, vs. 2 for Country A).</p>
+
+  <p>If Country A specializes in wheat and Country B specializes in cloth, total world output increases and both can trade to consume more.</p>
+
+  <div class="figure fade-in">
+    <svg viewBox="0 0 500 340" xmlns="http://www.w3.org/2000/svg">
+      <text x="250" y="22" text-anchor="middle" font-family="Playfair Display, serif" font-size="14" fill="#2C2C2C" font-weight="600">Production Possibilities Frontiers (PPF)</text>
+      <!-- Country A PPF -->
+      <rect x="30" y="40" width="210" height="260" fill="#FAFAF8" rx="8" stroke="#E8E6E1" stroke-width="1"/>
+      <text x="135" y="62" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="12" fill="#1A8A7D" font-weight="600">Country A</text>
+      <line x1="60" y1="260" x2="220" y2="260" stroke="#2C2C2C" stroke-width="1.5"/>
+      <line x1="60" y1="80" x2="60" y2="260" stroke="#2C2C2C" stroke-width="1.5"/>
+      <text x="140" y="278" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10" fill="#6B6B6B">Wheat</text>
+      <text x="38" y="170" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10" fill="#6B6B6B" transform="rotate(-90, 38, 170)">Cloth</text>
+      <!-- PPF line A: 100 wheat or 50 cloth -->
+      <line x1="60" y1="115" x2="205" y2="260" stroke="#1A8A7D" stroke-width="2.5"/>
+      <text x="54" y="112" text-anchor="end" font-family="Source Sans 3, sans-serif" font-size="10" fill="#1A8A7D">50</text>
+      <text x="205" y="278" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10" fill="#1A8A7D">100</text>
+      <!-- Without trade point -->
+      <circle cx="130" cy="188" r="4" fill="#E74C3C"/>
+      <text x="138" y="184" font-family="Source Sans 3, sans-serif" font-size="9" fill="#E74C3C">Without trade</text>
+      <!-- With trade point (beyond PPF) -->
+      <circle cx="150" cy="160" r="4" fill="#3498DB"/>
+      <text x="158" y="156" font-family="Source Sans 3, sans-serif" font-size="9" fill="#3498DB">With trade!</text>
+
+      <!-- Country B PPF -->
+      <rect x="260" y="40" width="210" height="260" fill="#FAFAF8" rx="8" stroke="#E8E6E1" stroke-width="1"/>
+      <text x="365" y="62" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="12" fill="#E74C3C" font-weight="600">Country B</text>
+      <line x1="290" y1="260" x2="450" y2="260" stroke="#2C2C2C" stroke-width="1.5"/>
+      <line x1="290" y1="80" x2="290" y2="260" stroke="#2C2C2C" stroke-width="1.5"/>
+      <text x="370" y="278" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10" fill="#6B6B6B">Wheat</text>
+      <text x="268" y="170" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10" fill="#6B6B6B" transform="rotate(-90, 268, 170)">Cloth</text>
+      <!-- PPF line B: 40 wheat or 40 cloth -->
+      <line x1="290" y1="115" x2="435" y2="260" stroke="#E74C3C" stroke-width="2.5"/>
+      <text x="284" y="112" text-anchor="end" font-family="Source Sans 3, sans-serif" font-size="10" fill="#E74C3C">40</text>
+      <text x="435" y="278" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10" fill="#E74C3C">40</text>
+      <!-- Without trade point -->
+      <circle cx="360" cy="188" r="4" fill="#E74C3C"/>
+      <text x="368" y="184" font-family="Source Sans 3, sans-serif" font-size="9" fill="#E74C3C">Without trade</text>
+      <!-- With trade point -->
+      <circle cx="370" cy="165" r="4" fill="#3498DB"/>
+      <text x="378" y="161" font-family="Source Sans 3, sans-serif" font-size="9" fill="#3498DB">With trade!</text>
+    </svg>
+    <div class="figure-caption"><strong>Figure 2.1:</strong> Production Possibilities Frontiers for two countries. Without trade, each country must consume on its PPF. With trade and specialization, both can consume beyond their PPFs (blue dots) — this is the gain from trade.</div>
+  </div>
+
+
+  <!-- ===== 3. BARRIERS ===== -->
+  <h2 id="barriers">3. Trade Barriers</h2>
+
+  <p>Despite the benefits of free trade, governments often impose barriers. These include:</p>
+
+  <p><strong>Tariffs</strong> — taxes on imported goods that raise their price, protecting domestic producers but hurting consumers. <strong>Quotas</strong> — limits on the quantity of a good that can be imported. <strong>Subsidies</strong> — payments to domestic producers that make them more competitive against imports. <strong>Non-tariff barriers</strong> — regulations, licensing requirements, and standards that make importing harder.</p>
+
+  <h3>Arguments For Protection</h3>
+  <p>Protecting <strong>infant industries</strong> (new industries that need time to develop), national security concerns (e.g., domestic steel production), protecting jobs in declining industries, and countering unfair practices like dumping (selling below cost to destroy competitors).</p>
+
+  <h3>Arguments Against Protection</h3>
+  <p>Trade barriers raise consumer prices, reduce choice, protect inefficient firms, invite retaliation from trade partners, and reduce total economic welfare. Most economists favor free trade with targeted safety nets for displaced workers.</p>
+
+
+  <!-- ===== 4. TARIFF GRAPH ===== -->
+  <h2 id="tariff-graph">4. Effects of a Tariff</h2>
+
+  <div class="figure fade-in">
+    <svg viewBox="0 0 520 400" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="gridt" width="50" height="50" patternUnits="userSpaceOnUse">
+          <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#E8E6E1" stroke-width="0.8"/>
+        </pattern>
+      </defs>
+      <rect x="70" y="20" width="410" height="310" fill="url(#gridt)"/>
+      <line x1="70" y1="330" x2="480" y2="330" stroke="#2C2C2C" stroke-width="2"/>
+      <line x1="70" y1="20" x2="70" y2="330" stroke="#2C2C2C" stroke-width="2"/>
+      <text x="275" y="370" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="14" fill="#6B6B6B">Quantity</text>
+      <text x="22" y="175" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="14" fill="#6B6B6B" transform="rotate(-90, 22, 175)">Price</text>
+      <!-- Domestic Supply -->
+      <line x1="100" y1="290" x2="430" y2="60" stroke="#1A8A7D" stroke-width="2.5"/>
+      <text x="435" y="55" font-family="Source Sans 3, sans-serif" font-size="12" fill="#1A8A7D" font-weight="600">S (domestic)</text>
+      <!-- Domestic Demand -->
+      <line x1="100" y1="60" x2="430" y2="290" stroke="#E74C3C" stroke-width="2.5"/>
+      <text x="435" y="298" font-family="Source Sans 3, sans-serif" font-size="12" fill="#E74C3C" font-weight="600">D</text>
+      <!-- World price (free trade) -->
+      <line x1="70" y1="220" x2="480" y2="220" stroke="#3498DB" stroke-width="2"/>
+      <text x="485" y="218" font-family="Source Sans 3, sans-serif" font-size="11" fill="#3498DB" font-weight="600">P_world</text>
+      <!-- World price + tariff -->
+      <line x1="70" y1="190" x2="480" y2="190" stroke="#F39C12" stroke-width="2" stroke-dasharray="8,4"/>
+      <text x="485" y="188" font-family="Source Sans 3, sans-serif" font-size="11" fill="#F39C12" font-weight="600">P_world + tariff</text>
+      <!-- Quantities at world price -->
+      <line x1="165" y1="220" x2="165" y2="330" stroke="#3498DB" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="165" y="345" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10" fill="#3498DB">Q_s1</text>
+      <line x1="365" y1="220" x2="365" y2="330" stroke="#3498DB" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="365" y="345" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10" fill="#3498DB">Q_d1</text>
+      <!-- Quantities at tariff price -->
+      <line x1="200" y1="190" x2="200" y2="330" stroke="#F39C12" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="200" y="345" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10" fill="#F39C12">Q_s2</text>
+      <line x1="330" y1="190" x2="330" y2="330" stroke="#F39C12" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="330" y="345" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10" fill="#F39C12">Q_d2</text>
+      <!-- Deadweight loss triangles -->
+      <polygon points="165,220 200,190 200,220" fill="rgba(231,76,60,0.25)" stroke="none"/>
+      <polygon points="330,220 330,190 365,220" fill="rgba(231,76,60,0.25)" stroke="none"/>
+      <text x="180" y="215" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="9" fill="#E74C3C" font-weight="600">DWL</text>
+      <text x="350" y="215" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="9" fill="#E74C3C" font-weight="600">DWL</text>
+      <!-- Government revenue -->
+      <rect x="200" y="190" width="130" height="30" fill="rgba(243,156,18,0.15)" stroke="none"/>
+      <text x="265" y="209" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10" fill="#F39C12" font-weight="600">Gov. Revenue</text>
+    </svg>
+    <div class="figure-caption"><strong>Figure 4.1:</strong> Effects of a tariff on an imported good. The tariff raises the domestic price from P_world to P_world + tariff. Domestic supply increases (Q_s1 → Q_s2) while demand falls (Q_d1 → Q_d2). The government collects tariff revenue (orange rectangle), but two deadweight loss triangles emerge — representing the welfare cost of the tariff to society.</div>
+  </div>
+
+
+  <!-- ===== 5. EXCHANGE RATES ===== -->
+  <h2 id="exchange">5. Exchange Rates</h2>
+
+  <p>An <strong>exchange rate</strong> is the price of one currency in terms of another. Under a <strong>floating exchange rate</strong> system, the rate is determined by supply and demand in foreign exchange markets.</p>
+
+  <p>When demand for a currency increases (e.g., foreign investors want to invest in the country), the currency <strong>appreciates</strong> (becomes stronger). When demand falls, the currency <strong>depreciates</strong> (becomes weaker).</p>
+
+  <div class="figure fade-in">
+    <svg viewBox="0 0 500 360" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="gridx" width="50" height="50" patternUnits="userSpaceOnUse">
+          <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#E8E6E1" stroke-width="0.8"/>
+        </pattern>
+      </defs>
+      <rect x="60" y="20" width="400" height="280" fill="url(#gridx)"/>
+      <line x1="60" y1="300" x2="460" y2="300" stroke="#2C2C2C" stroke-width="2"/>
+      <line x1="60" y1="20" x2="60" y2="300" stroke="#2C2C2C" stroke-width="2"/>
+      <text x="260" y="340" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="13" fill="#6B6B6B">Quantity of Currency (e.g., €)</text>
+      <text x="20" y="160" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="13" fill="#6B6B6B" transform="rotate(-90, 20, 160)">Exchange Rate ($/€)</text>
+      <!-- Supply of euros (upward) -->
+      <line x1="120" y1="260" x2="400" y2="60" stroke="#1A8A7D" stroke-width="2.5"/>
+      <text x="405" y="55" font-family="Source Sans 3, sans-serif" font-size="12" fill="#1A8A7D" font-weight="600">S€</text>
+      <!-- Demand for euros D1 -->
+      <line x1="100" y1="60" x2="360" y2="260" stroke="#E74C3C" stroke-width="2" opacity="0.4"/>
+      <text x="365" y="268" font-family="Source Sans 3, sans-serif" font-size="11" fill="#E74C3C" opacity="0.5">D€₁</text>
+      <!-- Demand shifted right D2 -->
+      <line x1="160" y1="50" x2="420" y2="250" stroke="#E74C3C" stroke-width="2.5"/>
+      <text x="425" y="256" font-family="Source Sans 3, sans-serif" font-size="12" fill="#E74C3C" font-weight="600">D€₂</text>
+      <!-- Shift arrow -->
+      <defs><marker id="ahx" markerWidth="7" markerHeight="7" refX="7" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7" fill="#E74C3C"/></marker></defs>
+      <line x1="200" y1="195" x2="240" y2="195" stroke="#E74C3C" stroke-width="1.5" marker-end="url(#ahx)"/>
+      <!-- Old equilibrium -->
+      <circle cx="230" cy="165" r="4" fill="#6B6B6B" opacity="0.5"/>
+      <line x1="60" y1="165" x2="230" y2="165" stroke="#6B6B6B" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+      <text x="50" y="169" text-anchor="end" font-family="Source Sans 3, sans-serif" font-size="10" fill="#6B6B6B">e₁</text>
+      <!-- New equilibrium (higher rate = appreciation) -->
+      <circle cx="280" cy="133" r="5" fill="#2C2C2C"/>
+      <line x1="60" y1="133" x2="280" y2="133" stroke="#2C2C2C" stroke-width="1.2" stroke-dasharray="5,4"/>
+      <text x="50" y="137" text-anchor="end" font-family="Source Sans 3, sans-serif" font-size="11" fill="#2C2C2C" font-weight="600">e₂</text>
+      <text x="295" y="126" font-family="Source Sans 3, sans-serif" font-size="11" fill="#6B6B6B">€ appreciates</text>
+    </svg>
+    <div class="figure-caption"><strong>Figure 5.1:</strong> The foreign exchange market for euros. Increased demand for euros (D€₁ → D€₂) — perhaps from increased exports or foreign investment — causes the euro to appreciate from e₁ to e₂ (each euro now costs more dollars).</div>
+  </div>
+
+  <div class="concept-box">
+    <div class="label">Impact of Exchange Rate Changes</div>
+    <p><strong>Appreciation</strong> (stronger currency): Makes exports more expensive and imports cheaper → hurts exporters, benefits importers and consumers. <strong>Depreciation</strong> (weaker currency): Makes exports cheaper and imports more expensive → helps exporters, hurts import-dependent industries. This is why exchange rates are closely watched by trade-dependent economies.</p>
+  </div>
+
+  <table class="comp-table">
+    <thead><tr><th>Exchange Rate System</th><th>How Rate Is Set</th><th>Examples</th><th>Pros &amp; Cons</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Floating</strong></td><td>Market forces (supply &amp; demand)</td><td>USD, EUR, GBP</td><td>Self-adjusting, but volatile</td></tr>
+      <tr><td><strong>Fixed (Pegged)</strong></td><td>Central bank intervention</td><td>Hong Kong dollar (to USD)</td><td>Stable, but requires reserves</td></tr>
+      <tr><td><strong>Managed Float</strong></td><td>Market + occasional intervention</td><td>India, Singapore</td><td>Flexibility with some stability</td></tr>
+    </tbody>
+  </table>
+
+
+  <!-- ===== 6. BOP ===== -->
+  <h2 id="bop">6. Balance of Payments</h2>
+
+  <p>The <strong>Balance of Payments (BOP)</strong> is a record of all economic transactions between residents of a country and the rest of the world over a period. It has two main accounts:</p>
+
+  <p><strong>Current Account:</strong> Records trade in goods and services, income flows (investment returns, wages), and unilateral transfers (foreign aid, remittances). A <strong>current account deficit</strong> means the country imports more than it exports.</p>
+
+  <p><strong>Capital &amp; Financial Account:</strong> Records cross-border investment — foreign direct investment (FDI), portfolio investment (stocks, bonds), and official reserve transactions. A country with a current account deficit must have a corresponding capital account surplus (foreigners are lending to or investing in the country).</p>
+
+  <div class="formula">
+    Current Account + Capital Account + Financial Account = 0
+  </div>
+
+  <div class="concept-box">
+    <div class="label">The Twin Deficits</div>
+    <p>A government budget deficit often accompanies a current account deficit — known as the "twin deficits" hypothesis. Government borrowing raises interest rates, attracting foreign capital, which appreciates the currency and makes exports less competitive. This link between fiscal and trade imbalances is a key topic in open-economy macroeconomics.</p>
+  </div>
+
+
+  <div class="topic-nav">
+    <a href="monetary.html">
+      <span class="dir">← Previous</span>
+      <span class="title">Monetary &amp; Fiscal Policy</span>
+    </a>
+    <a href="index.html" class="next">
+      <span class="dir">Back to →</span>
+      <span class="title">Home</span>
+    </a>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <p>EconStudy — Free &amp; open-source. No ads, ever.</p>
+</footer>
+
+</body>
+</html>

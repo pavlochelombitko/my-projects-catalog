@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin — pavyel_</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-card: #12121a;
+            --bg-card-hover: #1a1a26;
+            --bg-input: #0e0e16;
+            --border: #1e1e2e;
+            --border-hover: #2d2d44;
+            --border-focus: #00e5bf55;
+            --text-primary: #e8e8f0;
+            --text-secondary: #8888a0;
+            --text-muted: #55556a;
+            --accent: #00e5bf;
+            --accent-dim: #00e5bf15;
+            --danger: #ef4444;
+            --danger-dim: #ef444418;
+            --tag-bg: #1a1a2a;
+            --tag-text: #7878a0;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        header {
+            padding: 2rem 2rem 1.5rem;
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+        .logo span { color: var(--accent); }
+
+        .btn {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.55rem 1.2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+        .btn:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
+
+        .btn--accent {
+            background: var(--accent);
+            color: #0a0a0f;
+            border-color: var(--accent);
+            font-weight: 600;
+        }
+        .btn--accent:hover { opacity: 0.9; background: var(--accent); }
+
+        .btn--danger {
+            color: var(--danger);
+            border-color: transparent;
+            background: var(--danger-dim);
+        }
+        .btn--danger:hover { border-color: var(--danger); }
+
+        .btn--ghost {
+            border: none;
+            background: none;
+            color: var(--text-secondary);
+            padding: 0.4rem 0.6rem;
+        }
+        .btn--ghost:hover { color: var(--text-primary); }
+
+        main {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .panel-title {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .form-group--full { grid-column: 1 / -1; }
+
+        label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        input, textarea {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            padding: 0.7rem 1rem;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            outline: none;
+            transition: border-color 0.25s ease;
+            width: 100%;
+        }
+        input:focus, textarea:focus { border-color: var(--border-focus); }
+        input::placeholder, textarea::placeholder { color: var(--text-muted); }
+        textarea { resize: vertical; min-height: 80px; }
+
+        .form-actions {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1.25rem;
+        }
+
+        .image-preview-row {
+            display: flex;
+            align-items: flex-end;
+            gap: 1rem;
+        }
+        .image-preview-row .form-group { flex: 1; }
+        .image-preview {
+            width: 80px;
+            height: 50px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            object-fit: cover;
+            flex-shrink: 0;
+            background: var(--bg-input);
+        }
+
+        .project-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            transition: all 0.25s ease;
+        }
+        .project-item:hover { border-color: var(--border-hover); }
+
+        .project-thumb {
+            width: 72px;
+            height: 48px;
+            border-radius: 6px;
+            object-fit: cover;
+            flex-shrink: 0;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+        }
+        .project-thumb-placeholder {
+            width: 72px;
+            height: 48px;
+            border-radius: 6px;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, #12121a, #1a1a2a);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            opacity: 0.4;
+        }
+
+        .project-info { flex: 1; min-width: 0; }
+        .project-info h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .project-info p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .project-tags { display: flex; gap: 0.3rem; flex-shrink: 0; }
+        .tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            padding: 0.25rem 0.5rem;
+            background: var(--tag-bg);
+            color: var(--tag-text);
+            border-radius: 4px;
+        }
+
+        .project-actions { display: flex; gap: 0.25rem; flex-shrink: 0; }
+
+        .drag-handle {
+            cursor: grab;
+            color: var(--text-muted);
+            padding: 0.3rem;
+            flex-shrink: 0;
+            user-select: none;
+        }
+        .drag-handle:active { cursor: grabbing; }
+        .project-item.dragging { opacity: 0.4; }
+        .project-item.drag-over { border-color: var(--accent); background: var(--accent-dim); }
+
+        .export-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .export-info {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+        .export-info code {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            background: var(--tag-bg);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            color: var(--accent);
+        }
+
+        .export-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--accent);
+            color: var(--text-primary);
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 100;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+        .toast.show { transform: translateY(0); opacity: 1; }
+
+        .empty-list {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 640px) {
+            header, main { padding-left: 1.25rem; padding-right: 1.25rem; }
+            .form-row { grid-template-columns: 1fr; }
+            .project-item { flex-wrap: wrap; }
+            .project-tags { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">pavyel_<span>.</span> admin</a>
+        <a href="index.html" class="btn">&larr; View Site</a>
+    </header>
+
+    <main>
+        <div class="panel-title" id="formTitle">Add New Project</div>
+        <div class="form-card">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="pTitle">Title</label>
+                    <input type="text" id="pTitle" placeholder="My Awesome Project">
+                </div>
+                <div class="form-group">
+                    <label for="pLink">Link</label>
+                    <input type="url" id="pLink" placeholder="https://github.com/...">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group form-group--full">
+                    <label for="pDesc">Description</label>
+                    <textarea id="pDesc" placeholder="A brief description of the project..."></textarea>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <div class="image-preview-row">
+                        <div class="form-group" style="flex:1">
+                            <label for="pImage">Image URL</label>
+                            <input type="url" id="pImage" placeholder="https://images.unsplash.com/...">
+                        </div>
+                        <img id="imgPreview" class="image-preview" src="" alt="" style="display:none">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pTags">Tags <span style="color:var(--text-muted)">(comma separated)</span></label>
+                    <input type="text" id="pTags" placeholder="AI, Web, Design">
+                </div>
+            </div>
+            <div class="form-actions">
+                <button class="btn btn--accent" id="saveBtn" type="button">+ Add Project</button>
+                <button class="btn" id="cancelBtn" type="button" style="display:none">Cancel</button>
+            </div>
+        </div>
+
+        <div class="panel-title">Projects <span id="listCount" style="color:var(--accent)">0</span></div>
+        <div id="projectList"></div>
+
+        <div class="export-section">
+            <div class="panel-title">Export &amp; Deploy</div>
+            <p class="export-info">
+                Download the updated <code>projects.json</code> and replace it in your GitHub repository.
+                The main site reads this file to display your projects. You can also import an existing file.
+            </p>
+            <div class="export-actions">
+                <button class="btn btn--accent" id="exportBtn" type="button">&darr; Download projects.json</button>
+                <button class="btn" type="button" id="importBtn">&uarr; Import JSON</button>
+                <input type="file" id="importFile" accept=".json" style="display:none">
+                <button class="btn" id="copyBtn" type="button">&#9112; Copy to Clipboard</button>
+            </div>
+        </div>
+    </main>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+        (function() {
+            var projects = [];
+            var editingId = null;
+            var dragIndex = null;
+            var toastTimer = null;
+
+            // DOM refs
+            var $ = function(id) { return document.getElementById(id); };
+            var grid = $('projectList');
+            var countEl = $('listCount');
+            var formTitleEl = $('formTitle');
+            var saveBtnEl = $('saveBtn');
+            var cancelBtnEl = $('cancelBtn');
+            var imgPreview = $('imgPreview');
+
+            // ── Storage ──
+            function save() {
+                try {
+                    localStorage.setItem('portfolio_projects', JSON.stringify(projects));
+                } catch(e) {}
+            }
+
+            function loadStored() {
+                try {
+                    var raw = localStorage.getItem('portfolio_projects');
+                    if (raw) return JSON.parse(raw);
+                } catch(e) {}
+                return null;
+            }
+
+            // ── Init ──
+            function init() {
+                var stored = loadStored();
+                if (stored && Array.isArray(stored)) {
+                    projects = stored;
+                    renderList();
+                } else {
+                    // Try loading from file
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('GET', 'projects.json?' + Date.now(), true);
+                    xhr.onload = function() {
+                        try {
+                            var data = JSON.parse(xhr.responseText);
+                            if (Array.isArray(data)) {
+                                projects = data;
+                                save();
+                            }
+                        } catch(e) {}
+                        renderList();
+                    };
+                    xhr.onerror = function() { renderList(); };
+                    xhr.send();
+                }
+            }
+
+            // ── Render ──
+            function esc(str) {
+                if (!str) return '';
+                var d = document.createElement('div');
+                d.textContent = str;
+                return d.innerHTML;
+            }
+
+            function renderList() {
+                countEl.textContent = projects.length;
+
+                if (!projects.length) {
+                    grid.innerHTML = '<div class="empty-list">No projects yet. Add your first one above!</div>';
+                    return;
+                }
+
+                var html = '';
+                for (var i = 0; i < projects.length; i++) {
+                    var p = projects[i];
+                    var thumb = p.image
+                        ? '<img class="project-thumb" src="' + esc(p.image) + '" alt="" onerror="this.outerHTML=\'<div class=project-thumb-placeholder>&#9670;</div>\'">'
+                        : '<div class="project-thumb-placeholder">&#9670;</div>';
+
+                    var tags = (p.tags || []).slice(0, 3).map(function(t) {
+                        return '<span class="tag">' + esc(t) + '</span>';
+                    }).join('');
+
+                    html += '<div class="project-item" draggable="true" data-index="' + i + '">' +
+                        '<div class="drag-handle" title="Drag to reorder">&#9783;</div>' +
+                        thumb +
+                        '<div class="project-info">' +
+                            '<h3>' + esc(p.title) + '</h3>' +
+                            '<p>' + esc(p.description) + '</p>' +
+                        '</div>' +
+                        '<div class="project-tags">' + tags + '</div>' +
+                        '<div class="project-actions">' +
+                            '<button class="btn btn--ghost edit-btn" data-index="' + i + '" title="Edit">&#9998;</button>' +
+                            '<button class="btn btn--ghost delete-btn" data-index="' + i + '" title="Delete" style="color:var(--danger)">&#10005;</button>' +
+                        '</div>' +
+                    '</div>';
+                }
+                grid.innerHTML = html;
+
+                // Attach drag events
+                var items = grid.querySelectorAll('.project-item');
+                for (var j = 0; j < items.length; j++) {
+                    (function(item) {
+                        item.addEventListener('dragstart', function(e) {
+                            dragIndex = parseInt(item.getAttribute('data-index'));
+                            item.classList.add('dragging');
+                            e.dataTransfer.effectAllowed = 'move';
+                        });
+                        item.addEventListener('dragover', function(e) {
+                            e.preventDefault();
+                            item.classList.add('drag-over');
+                        });
+                        item.addEventListener('dragleave', function() {
+                            item.classList.remove('drag-over');
+                        });
+                        item.addEventListener('drop', function(e) {
+                            e.preventDefault();
+                            item.classList.remove('drag-over');
+                            var targetIndex = parseInt(item.getAttribute('data-index'));
+                            if (dragIndex === null || dragIndex === targetIndex) return;
+                            var moved = projects.splice(dragIndex, 1)[0];
+                            projects.splice(targetIndex, 0, moved);
+                            dragIndex = null;
+                            save();
+                            renderList();
+                            toast('Order updated');
+                        });
+                        item.addEventListener('dragend', function() {
+                            item.classList.remove('dragging');
+                            dragIndex = null;
+                        });
+                    })(items[j]);
+                }
+            }
+
+            // ── Event delegation for edit/delete ──
+            grid.addEventListener('click', function(e) {
+                var editBtn = e.target.closest('.edit-btn');
+                var deleteBtn = e.target.closest('.delete-btn');
+
+                if (editBtn) {
+                    var idx = parseInt(editBtn.getAttribute('data-index'));
+                    editProject(idx);
+                }
+                if (deleteBtn) {
+                    var idx2 = parseInt(deleteBtn.getAttribute('data-index'));
+                    deleteProject(idx2);
+                }
+            });
+
+            // ── CRUD ──
+            function saveProject() {
+                var title = $('pTitle').value.trim();
+                var link = $('pLink').value.trim();
+                var desc = $('pDesc').value.trim();
+                var image = $('pImage').value.trim();
+                var tagsStr = $('pTags').value.trim();
+
+                if (!title) { toast('Please enter a title'); return; }
+
+                var tags = tagsStr ? tagsStr.split(',').map(function(t) { return t.trim(); }).filter(Boolean) : [];
+
+                var project = {
+                    id: editingId || String(Date.now()),
+                    title: title,
+                    description: desc,
+                    image: image,
+                    link: link,
+                    tags: tags
+                };
+
+                if (editingId) {
+                    for (var i = 0; i < projects.length; i++) {
+                        if (projects[i].id === editingId) {
+                            projects[i] = project;
+                            break;
+                        }
+                    }
+                    editingId = null;
+                    formTitleEl.textContent = 'Add New Project';
+                    saveBtnEl.textContent = '+ Add Project';
+                    cancelBtnEl.style.display = 'none';
+                    toast('Project updated!');
+                } else {
+                    projects.push(project);
+                    toast('Project added!');
+                }
+
+                save();
+                renderList();
+                clearForm();
+            }
+
+            function editProject(i) {
+                var p = projects[i];
+                editingId = p.id;
+                $('pTitle').value = p.title || '';
+                $('pLink').value = p.link || '';
+                $('pDesc').value = p.description || '';
+                $('pImage').value = p.image || '';
+                $('pTags').value = (p.tags || []).join(', ');
+                formTitleEl.textContent = 'Edit Project';
+                saveBtnEl.textContent = '&#10003; Save Changes';
+                cancelBtnEl.style.display = 'inline-flex';
+                updatePreview();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            function cancelEdit() {
+                editingId = null;
+                formTitleEl.textContent = 'Add New Project';
+                saveBtnEl.textContent = '+ Add Project';
+                cancelBtnEl.style.display = 'none';
+                clearForm();
+            }
+
+            function deleteProject(i) {
+                if (!confirm('Delete "' + projects[i].title + '"?')) return;
+                projects.splice(i, 1);
+                save();
+                renderList();
+                toast('Project deleted');
+            }
+
+            function clearForm() {
+                $('pTitle').value = '';
+                $('pLink').value = '';
+                $('pDesc').value = '';
+                $('pImage').value = '';
+                $('pTags').value = '';
+                imgPreview.style.display = 'none';
+            }
+
+            function updatePreview() {
+                var url = $('pImage').value;
+                if (url) {
+                    imgPreview.src = url;
+                    imgPreview.style.display = 'block';
+                    imgPreview.onerror = function() { imgPreview.style.display = 'none'; };
+                } else {
+                    imgPreview.style.display = 'none';
+                }
+            }
+
+            // ── Export / Import ──
+            function exportJSON() {
+                var json = JSON.stringify(projects, null, 2);
+                var blob = new Blob([json], { type: 'application/json' });
+                var url = URL.createObjectURL(blob);
+                var a = document.createElement('a');
+                a.href = url;
+                a.download = 'projects.json';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                toast('Downloaded projects.json');
+            }
+
+            function importJSON(e) {
+                var file = e.target.files[0];
+                if (!file) return;
+                var reader = new FileReader();
+                reader.onload = function(ev) {
+                    try {
+                        var data = JSON.parse(ev.target.result);
+                        if (!Array.isArray(data)) throw new Error('Invalid');
+                        projects = data;
+                        save();
+                        renderList();
+                        toast('Imported ' + data.length + ' projects');
+                    } catch(err) {
+                        toast('Invalid JSON file');
+                    }
+                };
+                reader.readAsText(file);
+                e.target.value = '';
+            }
+
+            function copyJSON() {
+                var json = JSON.stringify(projects, null, 2);
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(json).then(function() {
+                        toast('JSON copied to clipboard');
+                    }).catch(function() {
+                        toast('Copy failed — try downloading instead');
+                    });
+                } else {
+                    // Fallback
+                    var ta = document.createElement('textarea');
+                    ta.value = json;
+                    document.body.appendChild(ta);
+                    ta.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(ta);
+                    toast('JSON copied to clipboard');
+                }
+            }
+
+            // ── Toast ──
+            function toast(msg) {
+                var el = $('toast');
+                el.textContent = msg;
+                el.classList.add('show');
+                if (toastTimer) clearTimeout(toastTimer);
+                toastTimer = setTimeout(function() { el.classList.remove('show'); }, 2500);
+            }
+
+            // ── Wire up events ──
+            saveBtnEl.addEventListener('click', saveProject);
+            cancelBtnEl.addEventListener('click', cancelEdit);
+            $('pImage').addEventListener('input', updatePreview);
+            $('exportBtn').addEventListener('click', exportJSON);
+            $('importBtn').addEventListener('click', function() { $('importFile').click(); });
+            $('importFile').addEventListener('change', importJSON);
+            $('copyBtn').addEventListener('click', copyJSON);
+
+            // Go
+            init();
+        })();
+    </script>
+</body>
+</html>
